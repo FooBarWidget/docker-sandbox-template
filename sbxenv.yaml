@@ -21,6 +21,7 @@ kits:
   - source: "git+https://github.com/FooBarWidget/docker-sandbox-shell-improvements-mixin-kit.git#ref=v1.1.0"
   - source: "git+https://github.com/FooBarWidget/docker-sandbox-ai-harness-improvements-mixin-kit.git"
   - source: "git+https://github.com/FooBarWidget/docker-sandbox-jsdev-mixin-kit.git"
+  - source: "git+https://github.com/FooBarWidget/docker-sandbox-vscode-mixin-kit.git"
   - source: ./kits/project-setup
 
 lifecycle:
