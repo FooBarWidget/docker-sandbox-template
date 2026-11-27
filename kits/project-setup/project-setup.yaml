@@ -1,0 +1,32 @@
+# syntax=docker/sandbox-kit:3
+
+schemaVersion: "3"
+kind: mixin
+
+displayName: Project-specific setup
+description: Project-specific setup
+
+capabilities:
+  - type: com.docker.sandbox/git-identity@1
+
+  ## To allow additional egress domains:
+  # - type: com.docker.sandbox/network-policy@2
+  #   config:
+  #     runtime:
+  #       allow:
+  #         - hosts:
+  #             - foo.com:443
+  #           methods:
+  #             - GET
+  #             - HEAD
+
+  ## To run additional scripts during sandbox creation:
+  # - type: com.docker.sandbox/lifecycle@1
+  #   config:
+  #     install:
+  #       - description: Project-specific setup
+  #         user: agent
+  #         command: |
+  #           set -exo pipefail
+  #
+  #           # Do your thing here

@@ -1,0 +1,32 @@
+schemaVersion: "1"
+
+name: docker-sandbox-template
+agent: opencode
+entrypoint: [bash]
+workspace: project
+additionalWorkspaces:
+  - path: .
+    target: /sandbox
+    readOnly: true
+
+sandboxOptions:
+  # Base system + OpenCode + other dev tools need 1-1.5 GB minimum
+  # VSCode needs 1-1.5G GB
+  memory: 1500m
+  cpus: 1
+  skills: readonly
+
+kits:
+  - source: sbx/opencode
+  - source: "git+https://github.com/FooBarWidget/docker-sandbox-shell-improvements-mixin-kit.git#ref=v1.1.0"
+  - source: "git+https://github.com/FooBarWidget/docker-sandbox-ai-harness-improvements-mixin-kit.git"
+  - source: "git+https://github.com/FooBarWidget/docker-sandbox-jsdev-mixin-kit.git"
+  - source: ./kits/project-setup
+
+lifecycle:
+  initialize:
+    - name: Check workspace
+      command: ./scripts/check-workspace.sh
+  preRemove:
+    - name: Sync disks
+      command: ./scripts/sync-disk.sh
