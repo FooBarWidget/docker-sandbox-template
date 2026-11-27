@@ -32,4 +32,4 @@ lifecycle:
       command: ./scripts/check-workspace.sh
   preRemove:
     - name: Sync disks
-      command: ./scripts/sync-disk.sh
+      command: ./scripts/sync-disks.sh
