@@ -19,6 +19,8 @@ sandboxOptions:
 kits:
   - source: sbx/opencode
   - source: "git+https://github.com/FooBarWidget/docker-sandbox-shell-improvements-mixin-kit.git#ref=v1.1.0"
+    args:
+      bash_prompt_pwd_basename: "true"
   - source: "git+https://github.com/FooBarWidget/docker-sandbox-ai-harness-improvements-mixin-kit.git#ref=v1.0.0"
     args:
       opencode_explore_model: "openai/gpt-6-luna#medium"
